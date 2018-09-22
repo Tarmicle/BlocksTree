@@ -7,5 +7,9 @@ public abstract class BlockNode {
     }
     public abstract void draw();
 
-    public abstract void genBitmap(int[][] bitmap,int x,int y);
+    protected abstract void genBitmap(int[][] bitmap,int x,int y);
+    public BlockDrawer initBitMap(){
+        return new BlockDrawer(this);
+    }
+
 }

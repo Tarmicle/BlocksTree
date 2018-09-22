@@ -24,11 +24,25 @@ public class Rect extends BlockNode {
 
     }
 
-    public void genBitmap(int[][] bitmap, int x, int y) {
+    protected void genBitmap(int[][] bitmap, int x, int y) {
+
+        bitmap[x][y] = 3;
         for (int i = 0; i < width(); i++) {
-            for (int l = 0; l < height(); l++) {
-                bitmap[x+i][y+l] = 1;
-            }
+            bitmap[x + 1 + i][y] = 1;
         }
+        bitmap[x + width() + 1][y] = 3;
+
+        for (int i = 0; i < height(); i++) {
+            bitmap[x][y + 1 + i] = 2;
+            bitmap[x + 1 + width()][y + 1 + i] = 2;
+        }
+
+        bitmap[x][y+height()+1] = 3;
+        for (int i = 0; i < width(); i++) {
+            bitmap[x+1+i][y + height() + 1] = 1;
+        }
+        bitmap[x+ 1 + width()][y+1+height()] = 3;
+
+
     }
 }

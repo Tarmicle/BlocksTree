@@ -18,17 +18,13 @@ public class VerticalBlock extends BlockNode {
 
     @Override
     public void draw() {
-        for (int i = 0; i < top.height() + 2; i++) {
-            top.draw();
-            System.out.println();
-        }
-        bottom.draw();
+
     }
 
     @Override
-    public void genBitmap(int[][] bitmap, int x, int y) {
+    protected void genBitmap(int[][] bitmap, int x, int y) {
         top.genBitmap(bitmap, x, y);
-        bottom.genBitmap(bitmap, x, y + top.height());
+        bottom.genBitmap(bitmap, x, y + top.height() + 1);
     }
 
 }

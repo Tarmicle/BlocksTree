@@ -26,9 +26,9 @@ public class HorizontalBlock extends BlockNode {
     }
 
     @Override
-    public void genBitmap(int[][] bitmap, int x, int y) {
+    protected void genBitmap(int[][] bitmap, int x, int y) {
         left.genBitmap(bitmap, x, y);
-        right.genBitmap(bitmap, x + left.width(), y);
+        right.genBitmap(bitmap, x + 1 + left.width(), y);
     }
 
 }
