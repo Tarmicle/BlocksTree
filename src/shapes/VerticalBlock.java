@@ -1,7 +1,9 @@
+package shapes;
+
 public class VerticalBlock extends BlockNode {
     BlockNode top, bottom;
 
-    VerticalBlock(BlockNode top, BlockNode bottom) {
+    public VerticalBlock(BlockNode top, BlockNode bottom) {
         this.top = top;
         this.bottom = bottom;
     }
@@ -24,7 +26,7 @@ public class VerticalBlock extends BlockNode {
     @Override
     protected void genBitmap(int[][] bitmap, int x, int y) {
         top.genBitmap(bitmap, x, y);
-        bottom.genBitmap(bitmap, x, y + top.height() + 1);
+        bottom.genBitmap(bitmap, x, y + top.height());
     }
 
 }

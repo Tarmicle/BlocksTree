@@ -1,19 +1,29 @@
+import parser.Parser;
+import shapes.HorizontalBlock;
+import shapes.Rect;
+import shapes.VerticalBlock;
+import tokenizer.Tokenizer;
+
 public class Main {
 
 
     public static void main(String[] args) {
-        VerticalBlock root =
+
+
+        Tokenizer t = new Tokenizer();
+        new Parser(t).parse().initBitMap().draw();
+        System.out.println("--------------------------");
+        new VerticalBlock(
+                new HorizontalBlock(
+                        new HorizontalBlock(
+                                new Rect(3, 4),
+                                new Rect(2, 2)),
+                        new Rect(1, 1)),
                 new VerticalBlock(
-                        new HorizontalBlock(new Rect(4, 1), new Rect(4, 3)),
-                        new HorizontalBlock(new Rect(1, 1), new HorizontalBlock(new Rect(1, 9), new Rect(1, 2))
-                        ));
-
-
+                        new Rect(4, 5),
+                        new HorizontalBlock(
+                                new Rect(3, 4), new Rect(1, 5))))
+                .initBitMap().draw();
         //1 = +, 2 = -, 3 = |, 4 = ' '
-
-        System.out.println("width" + root.width() + " height" + root.height());
-
-        int bitmap[][] = new int[root.width()][root.height()];
-        root.initBitMap().draw();
     }
 }
