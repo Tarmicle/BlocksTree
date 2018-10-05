@@ -1,13 +1,6 @@
 package parser;
 
-import shapes.BlockNode;
-import shapes.HorizontalBlock;
-import shapes.Rect;
-import shapes.VerticalBlock;
-import tokenizer.Token;
-import tokenizer.Tokenizer;
-
-public class Parser {
+public class Parser {/*
 
     private Tokenizer tokenizer;
     static int counter = 0;
@@ -25,7 +18,7 @@ public class Parser {
     }
 
     BlockNode recVerticalExpression(Token next, BlockNode leftSon) {
-        if (tokenizer.peek().getChars().equals("|")) {
+        if (tokenizer.pick().getChars().equals("|")) {
             tokenizer.next();
             return new VerticalBlock(leftSon, recVerticalExpression(next, horizontalExpression(tokenizer.next())));
         } else return leftSon;
@@ -36,9 +29,11 @@ public class Parser {
     }
 
     BlockNode recHorizontalExpression(Token next, BlockNode leftSon) {
-        if (tokenizer.peek().getChars().equals("-")) {
+        if (tokenizer.pick().getChars().equals("-")) {
             tokenizer.next();
-            return new HorizontalBlock(leftSon, recHorizontalExpression(next, primaryExpression(tokenizer.next())));
+            return new HorizontalBlock(
+                    leftSon,
+                    recHorizontalExpression(next, primaryExpression(tokenizer.next())));
         } else return leftSon;
     }
 
@@ -48,12 +43,12 @@ public class Parser {
         else return verticalExpression(tokenizer.next());
     }
 
-    BlockNode rectExpression(Token next) {
-        tokenizer.next();
+    BlockNode rectExpression(Token next) {// token 5
+        tokenizer.next();//*
         return new Rect(
                 Integer.valueOf(next.getChars()),
-                Integer.valueOf(tokenizer.next().getChars())
+                Integer.valueOf(tokenizer.next().getChars())//2
         );
-    }
+    }*/
 
 }

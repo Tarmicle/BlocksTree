@@ -1,27 +1,44 @@
 package tokenizer;
 
 
-public class Token {
-    TYPE type;
-    String chars;
+import java.util.Objects;
 
-    public Token(String chars, TYPE type) {
-        this.chars = chars;
+public class Token {
+    // CARATTERI TERMINATORI
+    TYPE type;
+    int num;
+
+    protected Token(int num, TYPE type) {
+        this.num = num;
         this.type = type;
+    }
+
+    protected Token(TYPE type) {
+        this(0,type);
+    }
+
+    public boolean isTypeOf(TYPE lparenthesis) {
+        return  lparenthesis == this.type;
     }
 
     public enum TYPE {
         NUMBER,
+        VLINE,
+        HLINE,
         SYMBOL,
-        EOS
+        LPARENTHESIS,
+        RPARENTHESIS, EOS
     }
 
     public TYPE getType() {
         return type;
     }
 
-    public String getChars() {
-        return chars;
+    public int getNum() {
+        if (!isTypeOf(TYPE.NUMBER)) throw new IllegalArgumentException();
+        return num;
     }
+
+
 
 }
